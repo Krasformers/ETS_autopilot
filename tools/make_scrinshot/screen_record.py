@@ -12,8 +12,8 @@ import time
 import os
 
 
-ABSOLUTE_SCREENSHOT_FOLDER_PATH = 'screens'
-FPS = 1
+ABSOLUTE_SCREENSHOT_FOLDER_PATH = 'data'
+FPS = 0.25
 
 if not os.path.isdir(ABSOLUTE_SCREENSHOT_FOLDER_PATH):
     os.mkdir(ABSOLUTE_SCREENSHOT_FOLDER_PATH)
