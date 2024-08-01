@@ -8,12 +8,31 @@ services:
       - ${PWD}/data:/label-studio/data
 
   tf-gpu-jupyter:
-    image: tensorflow/tensorflow:latest-gpu-jupyter
+    build:
+      context: 
+        ./jupyter-tf-gpu
     ports:
       - "8888:8888"
     volumes:
       - ${PWD}/notebooks:/tf/notebooks
       - ${PWD}/data:/tf/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+
+  torch-gpu-jupyter:
+    build:
+      context: 
+        ./jupyter-torch-gpu
+    ports:
+      - "9999:9999"
+    volumes:
+      - ${PWD}/notebooks:/torch/notebooks
+      - ${PWD}/data:/torch/data
     deploy:
       resources:
         reservations:

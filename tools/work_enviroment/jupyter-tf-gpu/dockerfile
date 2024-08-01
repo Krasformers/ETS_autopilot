@@ -1,0 +1,7 @@
+FROM tensorflow/tensorflow:latest-gpu
+RUN  apt-get -y update && apt-get -y upgrade
+COPY requirements.txt /requirements.txt
+RUN  python3 -m pip install --upgrade pip --no-cache-dir --root-user-action=ignore
+RUN  python3 -m pip install -r /requirements.txt --no-cache-dir --root-user-action=ignore
+WORKDIR /tf
+CMD  jupyter notebook --notebook-dir=/tf/notebooks --ip=0.0.0.0 --port=8888 --no-browser --allow-root

@@ -1,0 +1,10 @@
+jupyterlab
+notebook
+voila
+numpy
+pandas
+matplotlib
+opencv-python
+pycocotools
+onnxruntime
+onnx
