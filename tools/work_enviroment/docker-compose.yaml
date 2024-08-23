@@ -1,28 +1,28 @@
 version: '1.0.0'
 services:
-  label-studio:
-    image: heartexlabs/label-studio:latest
-    ports:
-      - "8080:8080"
-    volumes:
-      - ${PWD}/data:/label-studio/data
+  #label-studio:
+  #  image: heartexlabs/label-studio:latest
+  #  ports:
+  #    - "8080:8080"
+  #  volumes:
+  #    - ${PWD}/data:/label-studio/data
 
-  tf-gpu-jupyter:
-    build:
-      context: 
-        ./jupyter-tf-gpu
-    ports:
-      - "8888:8888"
-    volumes:
-      - ${PWD}/notebooks:/tf/notebooks
-      - ${PWD}/data:/tf/data
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['0']
-              capabilities: [gpu]
+  #tf-gpu-jupyter:
+  #  build:
+  #    context: 
+  #      ./jupyter-tf-gpu
+  #  ports:
+  #    - "8888:8888"
+  #  volumes:
+  #    - ${PWD}/notebooks:/tf/notebooks
+  #    - ${PWD}/data:/tf/data
+  #  deploy:
+  #    resources:
+  #      reservations:
+  #        devices:
+  #          - driver: nvidia
+  #            device_ids: ['0']
+  #            capabilities: [gpu]
 
   torch-gpu-jupyter:
     build:
