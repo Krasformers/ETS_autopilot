@@ -24,15 +24,32 @@ services:
   #            device_ids: ['0']
   #            capabilities: [gpu]
 
-  torch-gpu-jupyter:
+  #torch-gpu-jupyter:
+  #  build:
+  #    context: 
+  #      ./jupyter-torch-gpu
+  #  ports:
+  #    - "9999:9999"
+  #  volumes:
+  #    - ${PWD}/notebooks:/torch/notebooks
+  #    - ${PWD}/data:/torch/data
+  #  deploy:
+  #    resources:
+  #      reservations:
+  #        devices:
+  #          - driver: nvidia
+  #            device_ids: ['0']
+  #            capabilities: [gpu]
+
+  sam2:
     build:
       context: 
-        ./jupyter-torch-gpu
+        ./sam2
     ports:
       - "9999:9999"
     volumes:
-      - ${PWD}/notebooks:/torch/notebooks
-      - ${PWD}/data:/torch/data
+    #  - ${PWD}/notebooks:/torch/notebooks
+      - ${PWD}/data:/segment-anything-2/data
     deploy:
       resources:
         reservations:
