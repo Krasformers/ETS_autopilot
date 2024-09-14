@@ -48,8 +48,8 @@ services:
     ports:
       - "9999:9999"
     volumes:
-    #  - ${PWD}/notebooks:/torch/notebooks
-      - ${PWD}/data:/segment-anything-2/data
+      - ${PWD}/notebooks:/notebooks
+      - ${PWD}/data:/data
     deploy:
       resources:
         reservations:
